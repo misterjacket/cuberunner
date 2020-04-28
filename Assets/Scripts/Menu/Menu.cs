@@ -6,6 +6,7 @@ public class Menu : MonoBehaviour
     public void StartGame()
     {
         PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("DeathCount", 0);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 

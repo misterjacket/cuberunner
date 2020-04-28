@@ -6,6 +6,7 @@ public class EndTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        gameManager.CompleteLvevel();
+        if (other.CompareTag("Player"))
+            gameManager.CompleteLvevel();
     }
 }

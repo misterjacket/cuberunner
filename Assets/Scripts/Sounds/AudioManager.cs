@@ -39,11 +39,21 @@ public class AudioManager : MonoBehaviour
 
     public void Play(string name)
     {
+        // Find the sound
         Sound s = Array.Find(sounds, sound => sound.name == name);
 
+        // If sound is not found, error
         if (s == null)
             return;
 
+        // If the game is paused, lower the volume
+        if (PauseGame.isGamePaused)
+        {
+            s.source.pitch *= 0.05f;
+            s.source.volume *= 0.1f;
+        }
+
+        // Play the sound
         s.source.Play();
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    bool gameHasEnded = false;
+    private bool gameHasEnded = false;
 
     public float restartDelay = 1;
     public GameObject completeLevelUI;
@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
         if (!gameHasEnded)
         {
             gameHasEnded = true;
+
+            // Update death count call method
+            FindObjectOfType<DeathCount>().UpdateDeathCount();
+
             Invoke("Restart", restartDelay);
         }
     }
